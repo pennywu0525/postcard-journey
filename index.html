@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一張明信片，去旅行：上傳你的真實旅行照片，挑選 12 種明信片邊框，寫下心情並下載專屬明信片；收藏牆已有 12 張世界景點實景範例。">
+  <meta name="theme-color" content="#fbf5ef">
+  <title>一張明信片，去旅行｜照片明信片製作所</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#creator">直接前往製作所</a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home"><span class="brand-icon" aria-hidden="true">✉</span><span><strong>一張明信片，去旅行</strong><small>POSTCARD JOURNEY</small></span></a>
+      <nav aria-label="主要導覽"><a href="#creator">製作明信片</a><a href="#gallery">我的收藏牆</a><a href="#about">關於網站</a></nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">✦ LITTLE MOMENTS · BIG MEMORIES ✦</div>
+        <h1>把旅行的風景，<br>寄成一張<span>明信片。</span></h1>
+        <p class="hero-en">A postcard from somewhere lovely.</p>
+        <p class="hero-sub">上傳你拍下的真實風景，挑選喜歡的邊框，<br>再寫一句只屬於你的旅行心情。<br>每個想記住的瞬間，都值得被好好收藏。</p>
+        <div class="hero-ctas"><a href="#creator" class="primary-link">✦ 開始製作我的明信片 <span aria-hidden="true">↗</span></a><a href="#gallery" class="secondary-link">先逛逛 12 張旅行範例　→</a></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-back"><div class="mock-photo mock-photo-2"><span>YOUR PHOTO</span></div><small>somewhere magical ✧</small></div>
+        <div class="hero-card hero-card-front"><div class="mock-photo"><span>YOUR PHOTO HERE</span><span class="mock-camera">▧</span></div><strong>旅行手帳的一頁 ♡</strong><small>POSTCARD JOURNEY</small></div>
+        <span class="hero-sticker sticker-a">✿</span><span class="hero-sticker sticker-b">✈</span><span class="hero-dash">﹏﹏ ﾟ･✧</span>
+      </div>
+    </section>
+
+    <section class="studio container" id="creator" aria-labelledby="studioTitle">
+      <div class="section-head"><div><div class="eyebrow">✿ CREATE YOUR OWN POSTCARD</div><h2 id="studioTitle">你的旅行明信片製作所</h2><p>只要四步：上傳照片、選邊框、寫心情、下載明信片。</p></div><div class="section-stamp">MADE<br>WITH ♡</div></div>
+      <div class="studio-layout">
+        <form class="form-panel" id="studioForm">
+          <div class="paper-tab">To the lovely traveler ♡</div>
+          <div class="field">
+            <label for="photoInput"><span class="num">01</span> 上傳旅行照片 <em>必填</em></label>
+            <label for="photoInput" class="upload-box" id="uploadBox"><span class="upload-symbol">▧</span><strong id="uploadName">點我選擇一張照片</strong><span>支援 JPG、PNG、WebP · 15 MB 以下</span></label>
+            <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" required class="visually-hidden">
+            <small class="helper">圖片只在你的瀏覽器處理，不會上傳到伺服器。</small>
+          </div>
+          <div class="field">
+            <label><span class="num">02</span> 挑選明信片邊框 <em>12 款任選</em></label>
+            <div id="frameOptions" class="frame-options" role="group" aria-label="選擇明信片邊框"></div>
+          </div>
+          <div class="field two-col">
+            <div><label for="placeInput"><span class="num">03</span> 旅行地點 <em>必填</em></label><input id="placeInput" maxlength="36" required placeholder="例如：濟州島、京都、巴黎"></div>
+            <div><label for="countryInput">國家／地區 <em>選填</em></label><input id="countryInput" maxlength="24" placeholder="例如：韓國"></div>
+          </div>
+          <div class="field"><label for="noteInput"><span class="num">04</span> 寫一句旅行心情 <em>選填</em></label><textarea id="noteInput" rows="3" maxlength="75" placeholder="例如：想把這一天的海風，好好收藏起來。"></textarea><small class="helper">不需要 AI 代寫，你的心情就是明信片最有意思的部分。</small></div>
+          <button class="generate" type="submit">✦ 生成我的旅行明信片 ↗</button>
+          <p class="notice">免登入、免 API、免費使用。使用者自行上傳照片，選擇邊框後即時排版；並非 AI 即時繪製景點。</p>
+        </form>
+        <div class="preview-panel">
+          <div class="preview-top">✧　A POSTCARD JUST FOR YOU　✧</div>
+          <div class="canvas-wrap"><canvas id="postcardCanvas" width="1200" height="860" role="img" aria-label="明信片預覽，尚未上傳照片"></canvas></div>
+          <p class="preview-hint" id="statusText" role="status" aria-live="polite">先上傳一張照片，選擇喜歡的邊框，就能開始製作！</p>
+          <div class="action-row"><button type="button" id="downloadBtn" class="action-primary" disabled>↓ 下載明信片 PNG</button><button type="button" id="saveBtn" class="action-secondary" disabled>♡ 收進收藏牆</button></div>
+          <button type="button" id="resetBtn" class="reset">↺ 再做一張</button>
+          <p class="privacy-note">✿ 下載檔案可永久保存在自己的裝置；收藏牆則僅保存在目前的瀏覽器，清除網站資料後可能消失。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery container" id="gallery" aria-labelledby="galleryTitle">
+      <div class="section-head"><div><div class="eyebrow">✦ MY LITTLE TRAVEL ALBUM</div><h2 id="galleryTitle">我的明信片收藏牆</h2><p id="countText">12 張世界旅行範例，等你把自己的回憶加進來。</p><p class="gallery-intro">✿ 先看 12 張真實景點照片搭配不同邊框；也可以上傳自己的照片，製作專屬明信片。</p></div><span class="gallery-doodle" aria-hidden="true">✉︎　✿　✈</span></div>
+      <div class="gallery-controls"><div class="country-controls" id="countryOptions" aria-label="國家分類"></div><button id="favoritesBtn" type="button" class="chip" aria-pressed="false">♡ 我的最愛</button><label class="search-field"><span>⌕</span><input type="search" id="searchInput" placeholder="搜尋景點或國家…"></label></div>
+      <div id="galleryCards" class="gallery-grid" aria-live="polite"></div><p class="online-image-note">照片範例引用 Wikimedia Commons 的授權照片，首次觀看需要連上網路。每張卡片都附有攝影作者、授權與來源連結；下載與上傳自己的照片則不需要 API。</p>
+    </section>
+
+    <section id="about" class="about container"><div class="about-card"><span class="about-symbol" aria-hidden="true">✎</span><div><h2>一張明信片，去旅行</h2><p>這是一個能持續擴充的旅行明信片網站。除了照片製作與收藏，專案還有 <code>AGENTS.md</code>，讓 AI 能遵照固定規則新增更多邊框、查證景點資料與維護範例收藏牆，保持一致的風格，這也是本次課堂作業的核心。</p></div></div></section>
+  </main>
+  <footer><div class="container">Postcard Journey ♡　把喜歡的風景，留成一張明信片。<span>Made with your own photos, not AI-generated scenes.</span></div></footer>
+  <dialog id="sampleDialog" class="sample-dialog" aria-labelledby="dialogTitle"><div class="dialog-inner"><button type="button" id="closeDialog" class="dialog-close" aria-label="關閉景點介紹">✕</button><div class="dialog-photo-wrap"><img id="dialogPhoto" class="dialog-photo" alt=""><div id="dialogFrame" class="dialog-photo-frame"></div></div><div class="dialog-copy"><span id="dialogRegion" class="dialog-region"></span><h2 id="dialogTitle"></h2><p id="dialogEnglish" class="dialog-english"></p><p id="dialogIntro"></p><div class="dialog-fact"><strong>✧ 旅行小知識</strong><p id="dialogTrivia"></p></div><p id="dialogFrameName" class="dialog-frame-name"></p><div class="dialog-links"><a id="dialogFactLink" target="_blank" rel="noopener noreferrer">景點資料來源 ↗</a><a id="dialogPhotoLink" target="_blank" rel="noopener noreferrer">照片來源・授權 ↗</a></div><p id="dialogCredit" class="dialog-credit"></p><button id="useFrameBtn" class="dialog-use" type="button">用同款邊框製作自己的明信片 ↗</button></div></div></dialog>
+  <script src="frames.js"></script><script src="examples.js"></script><script src="app.js"></script>
+</body>
+</html>
